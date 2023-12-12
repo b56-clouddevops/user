@@ -1,3 +1,4 @@
 @Library('jenkins-shared-library') _ 
 
-nodejs('user')
+env.COMPONENT="user"
+nodejs()
