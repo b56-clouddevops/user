@@ -1,8 +1,12 @@
+@Library('jenkins-shared-library') _ 
 pipeline {
     agent any
     stages {
         stage('Lint Checks'){
             steps {
+                script {
+                    sample.info("user")
+                }
                 sh "echo ***** Starting Style Checks *****"
                 sh "npm install jslint"
                 sh "node_modules/jslint/bin/jslint.js server.js || true"
