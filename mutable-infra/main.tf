@@ -1,4 +1,4 @@
-module "catalogue" {
+module "user" {
   source                = "./vendor/modules/app"
 
   ENV                   = var.ENV
