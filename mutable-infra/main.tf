@@ -2,6 +2,7 @@ module "user" {
   source                = "./vendor/modules/app"
 
   ENV                   = var.ENV
+  INTERNAL              = var.INTERNAL
   COMPONENT             = var.COMPONENT
   APP_PORT              = var.APP_PORT
   APP_VERSION           = var.APP_VERSION
