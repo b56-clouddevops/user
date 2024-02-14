@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: 355449129696.dkr.ecr.us-east-1.amazonaws.com/user:v002
+        image: 355449129696.dkr.ecr.us-east-1.amazonaws.com/user:v003
         ports:
         - containerPort: 8080
         envFrom:  
@@ -51,4 +51,24 @@ spec:
   ports:
     - protocol: TCP
       port: 8080
-      targetPort: 8080
+      targetPort: 8080 
+
+--- 
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: user-hpa 
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: user
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 75
