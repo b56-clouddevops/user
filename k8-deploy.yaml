@@ -41,6 +41,7 @@ data:
   REDIS_HOST: "roboshop-dev.8m1fwx.0001.use1.cache.amazonaws.com"
   APP: "ecommerce"
   ENVIRON: "ppp"
+  ENCX: "xxxx"
   XXXX: "yyy.com"
 --- 
 # Creating ClusterIP Service ( this is the default type ) 
